@@ -1,0 +1,88 @@
+  <div id="menu">
+   <ul>
+    <li><a href="mpppm.php">Inicio</a>
+        <ul>
+              
+        </ul>
+    </li>
+</ul>
+<ul>
+<?php
+if ($_SESSION["privilegios"]==1)
+{echo '
+    <li><a href="#">Usuarios</a>
+<ul>
+<li> <a href="sircarch.php?modulo=5&accion=1">Nuevo</a></li>
+<li> <a href="sircarch.php?modulo=5&accion=3">Lista</a></li>
+</ul>
+    </li>
+</ul>';}
+else{
+echo '  <li><a href="#">Perfil</a>
+<ul>
+<li><a href="sircarch.php?modulo=5&accion=11&user='.$_SESSION[usuario].'">Ver</a></li>
+
+</ul>
+    </li>';
+
+
+}	
+?>
+<ul>
+    <li><a href="#">Archivos</a>   
+<ul>
+<?php
+if ($_SESSION["privilegios"]==1)
+{echo '
+<li> <a href="sircarch.php?modulo=6&accion=1">Nuevo</a></li>
+<li> <a href="sircarch.php?modulo=6&accion=16">Lista</a></li>
+';}
+
+else{
+$v=$_SESSION["privilegios"];
+echo '
+<li> <a href="sircarch.php?modulo=6&accion=1">Nuevo</a></li>
+<li> <a href="sircarch.php?modulo=6&accion=17&area='.$v.'">Lista</a></li>
+';}
+?>
+</ul>
+</li>
+ 
+        </ul>           
+   </li>
+</ul>
+<?php
+if ($_SESSION["privilegios"]==1)
+{echo '
+<ul>
+	<li><a href="#">Reportes</a>
+		<ul>
+		<li><a href="sircarch.php?modulo=5&accion=8">Por Usuario</a></li>
+		<li><a href="sircarch.php?modulo=6&accion=3">Por Fecha</a></li>
+		 <li ><a href="backup/backup.php">-RESPALDO BD</a></li>  
+		</ul>
+
+	</li> 
+</ul>  
+';}
+else {echo "";}?>
+<ul>
+	<li><a href="#">Nota Remision</a>
+	<ul>
+<?php
+if ($_SESSION["privilegios"]==1)
+{echo '<li> <a href="sircarch.php?modulo=7&accion=1">Nuevo</a></li>
+<li> <a href="sircarch.php?modulo=7&accion=12">Lista</a></li>
+';}
+
+else{
+$v=$_SESSION["privilegios"];
+echo '
+<li> <a href="sircarch.php?modulo=7&accion=1">Nuevo</a></li>
+<li> <a href="sircarch.php?modulo=7&accion=13&area='.$v.'">Lista</a></li>
+';}
+?>
+</ul>
+</ul>        
+ </div> 
+
